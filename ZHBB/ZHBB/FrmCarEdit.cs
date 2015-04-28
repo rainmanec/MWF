@@ -49,7 +49,10 @@ namespace ZHBB
             string phone = tb_phone.Text.Trim();
             string address = tb_address.Text.Trim();
             string beizhu = tb_beizhu.Text.Trim();
+            string weight = tb_weight.Text.Trim();
+            string company = tb_company.Text.Trim();
 
+            // 验证：车牌
             if (chepai == "")
             {
                 MessageBox.Show("车牌号不能为空");
@@ -58,6 +61,28 @@ namespace ZHBB
             }
             string likevalue = Util.GetLikeValue(chepai);
 
+            // 验证：车重
+            if (weight == "")
+            {
+                MessageBox.Show("请填写车重量");
+                tb_weight.Focus();
+                return;
+            }
+            decimal dweight;
+            Boolean isDecimal = Decimal.TryParse(weight, out dweight);
+            if (isDecimal == false)
+            {
+                MessageBox.Show("车重输入错误");
+                tb_weight.Focus();
+                return;
+            }
+
+            // 所属单位
+            if (company != "")
+            {
+                Util.AddCompany(company);
+            }
+
             // 整理参数
             SqlParameter p_chepai = Util.NewSqlParameter("@p_chepai", SqlDbType.VarChar, chepai.ToUpper(), 50);
             SqlParameter p_owner = Util.NewSqlParameter("@p_owner", SqlDbType.VarChar, owner, 50);
@@ -65,6 +90,8 @@ namespace ZHBB
             SqlParameter p_address = Util.NewSqlParameter("@p_address", SqlDbType.VarChar, address,50);
             SqlParameter p_beizhu = Util.NewSqlParameter("@p_beizhu", SqlDbType.VarChar, beizhu, 50);
             SqlParameter p_likevalue = Util.NewSqlParameter("@p_likevalue", SqlDbType.VarChar, likevalue, 100);
+            SqlParameter p_weight = Util.NewSqlParameter("@p_weight", SqlDbType.Decimal, dweight);
+            SqlParameter p_company = Util.NewSqlParameter("@p_company", SqlDbType.VarChar, company, 50);
             SqlParameter p_id = Util.NewSqlParameter("@p_id", SqlDbType.Int, this.id);
 
             /* 判断登陆名是否重复 */
@@ -87,7 +114,9 @@ namespace ZHBB
                                 phone = @p_phone,
                                 address = @p_address,
                                 beizhu = @p_beizhu,
-                                likevalue = @p_likevalue
+                                likevalue = @p_likevalue，
+                                weight = @p_weight,
+                                company = @p_company
                             where ID = @p_id
                         ");
             int affect = SqlHelper.ExecuteNonQuery(sql, paras);
@@ -100,7 +129,7 @@ namespace ZHBB
             }
             else
             {
-                MessageBox.Show("添加失败！");
+                MessageBox.Show("编辑失败！");
             }
         }
 
