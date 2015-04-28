@@ -1,0 +1,442 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7EFC2411-6A3B-4A8F-A926-B322972012AA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZHBB</RootNamespace>
+    <AssemblyName>ZHBB</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\rainman\Desktop\StoneApp\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>project32.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>9342534F19789B69E6F6F7C5CFD63CA8B3DE1C3D</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>ZHBB_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aspose.Cells, Version=5.3.1.0, Culture=neutral, PublicKeyToken=9ec0ff091d04b091, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\第三方控件\Aspose\Aspose.Cells.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>F:\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Microsoft SQL Server\110\SDK\Assemblies\Microsoft.SqlServer.Types.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App\AppData.cs" />
+    <Compile Include="Library\Util.cs" />
+    <Compile Include="MyUIReportViwer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyUIReportViwer.Designer.cs">
+      <DependentUpon>MyUIReportViwer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xsd\DataSetRecord.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetRecord.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="FrmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAbout.Designer.cs">
+      <DependentUpon>FrmAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSysConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSysConfig.Designer.cs">
+      <DependentUpon>FrmSysConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUserList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUserList.Designer.cs">
+      <DependentUpon>FrmUserList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPasswordEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPasswordEdit.Designer.cs">
+      <DependentUpon>FrmPasswordEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRecordIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRecordIn.Designer.cs">
+      <DependentUpon>FrmRecordIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyUIPrintSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MyUIPrintSetting.designer.cs">
+      <DependentUpon>MyUIPrintSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Library\SqlHelper.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="App\Util.cs" />
+    <Compile Include="FrmUserAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUserAdd.Designer.cs">
+      <DependentUpon>FrmUserAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRecordOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRecordOut.Designer.cs">
+      <DependentUpon>FrmRecordOut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCarAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCarAdd.Designer.cs">
+      <DependentUpon>FrmCarAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUserEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUserEdit.Designer.cs">
+      <DependentUpon>FrmUserEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCarEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCarEdit.Designer.cs">
+      <DependentUpon>FrmCarEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCarList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCarList.Designer.cs">
+      <DependentUpon>FrmCarList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmKindList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmKindList.Designer.cs">
+      <DependentUpon>FrmKindList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmKindEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmKindEdit.Designer.cs">
+      <DependentUpon>FrmKindEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmKindAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmKindAdd.Designer.cs">
+      <DependentUpon>FrmKindAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCompanyAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCompanyAdd.Designer.cs">
+      <DependentUpon>FrmCompanyAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCompanyList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCompanyList.Designer.cs">
+      <DependentUpon>FrmCompanyList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCompanyEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCompanyEdit.Designer.cs">
+      <DependentUpon>FrmCompanyEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSearchMingXi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSearchMingXi.Designer.cs">
+      <DependentUpon>FrmSearchMingXi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSearchHuiZongKind.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSearchHuiZongKind.Designer.cs">
+      <DependentUpon>FrmSearchHuiZongKind.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSearchYear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSearchYear.Designer.cs">
+      <DependentUpon>FrmSearchYear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSearchMonth.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSearchMonth.Designer.cs">
+      <DependentUpon>FrmSearchMonth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSearchNotOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSearchNotOut.Designer.cs">
+      <DependentUpon>FrmSearchNotOut.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FrmAbout.resx">
+      <DependentUpon>FrmAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSysConfig.resx">
+      <DependentUpon>FrmSysConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUserList.resx">
+      <DependentUpon>FrmUserList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPasswordEdit.resx">
+      <DependentUpon>FrmPasswordEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRecordIn.resx">
+      <DependentUpon>FrmRecordIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyUIPrintSetting.resx">
+      <DependentUpon>MyUIPrintSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FrmUserAdd.resx">
+      <DependentUpon>FrmUserAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRecordOut.resx">
+      <DependentUpon>FrmRecordOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCarAdd.resx">
+      <DependentUpon>FrmCarAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUserEdit.resx">
+      <DependentUpon>FrmUserEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCarEdit.resx">
+      <DependentUpon>FrmCarEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCarList.resx">
+      <DependentUpon>FrmCarList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmKindList.resx">
+      <DependentUpon>FrmKindList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmKindEdit.resx">
+      <DependentUpon>FrmKindEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmKindAdd.resx">
+      <DependentUpon>FrmKindAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCompanyAdd.resx">
+      <DependentUpon>FrmCompanyAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCompanyList.resx">
+      <DependentUpon>FrmCompanyList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCompanyEdit.resx">
+      <DependentUpon>FrmCompanyEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSearchMingXi.resx">
+      <DependentUpon>FrmSearchMingXi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSearchHuiZongKind.resx">
+      <DependentUpon>FrmSearchHuiZongKind.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSearchYear.resx">
+      <DependentUpon>FrmSearchYear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSearchMonth.resx">
+      <DependentUpon>FrmSearchMonth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSearchNotOut.resx">
+      <DependentUpon>FrmSearchNotOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rdlc\RdlcRecord.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyUIReportViwer.resx">
+      <DependentUpon>MyUIReportViwer.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Xsd\DataSetRecord.xsc">
+      <DependentUpon>DataSetRecord.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Xsd\DataSetRecord.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetRecord.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Xsd\DataSetRecord.xss">
+      <DependentUpon>DataSetRecord.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="ZHBB_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Dll\Microsoft.ReportViewer.ProcessingObjectModel.DLL" />
+    <Content Include="Images\weight20.png" />
+    <Content Include="project32.ico" />
+    <Content Include="Resource\bin\Aspose.Cells.dll" />
+    <Content Include="Resource\ico\classic_folder_projects.ico" />
+    <Content Include="Resource\ico\project.ico" />
+    <Content Include="Resource\ico\project128.ico" />
+    <Content Include="Resource\ico\project16.ico" />
+    <Content Include="Resource\ico\project32.ico" />
+    <Content Include="Resource\ico\project48.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
+    <Folder Include="Resource\bin\html\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\MyUI\MyUI.csproj">
+      <Project>{6EF6DD55-27DB-4E1E-B916-6C4430AA7B97}</Project>
+      <Name>MyUI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
