@@ -13,11 +13,17 @@ namespace ZHBB
 {
     public partial class FrmCarAdd : Form
     {
+        private Point p_company;
         public bool IsAdded = false;  // 是否添加过用户
 
         public FrmCarAdd()
         {
             InitializeComponent();
+        }
+
+        private void FrmCarAdd_Load(object sender, EventArgs e)
+        {
+            this.p_company = new Point(tb_company.Left, tb_company.Top + tb_company.Height);
         }
 
         /// <summary>
@@ -101,7 +107,7 @@ namespace ZHBB
             SqlParameter[] paras = new SqlParameter[] { p_chepai, p_owner, p_phone, p_address, p_beizhu, p_likevalue };            
             string sql = @"INSERT 
                             INTO Cars(chepai, owner, phone, address, beizhu, Likevalue, weight, company) 
-                            VALUES (@p_chepai, @p_owner, @p_phone, @p_address, @p_beizhu, @p_likevalue, @p_weight, @p_company)";
+                            VALUES (@p_chepai, @p_owner, @p_phone, @p_address, @p_beizhu, @p_likevalue, @p_weight,p_company, p_weight, @p_company)";
             int affect = SqlHelper.ExecuteNonQuery(sql, paras);
             if (affect == 1)
             {
@@ -135,10 +141,79 @@ namespace ZHBB
             }
         }
 
-
-        private void FrmCarAdd_Load(object sender, EventArgs e)
+        private void tb_company_KeyDown(object sender, KeyEventArgs e)
         {
+            DataGridView dgv = this.dgv_company;
+            // 回车
+            if (e.KeyCode == Keys.Down || e.KeyCode == Keys.Up)
+            {
+                int rowsCount = dgv.Rows.Count;
+                if (rowsCount > 0)
+                {
+                    int rowIndex = dgv.CurrentCell.RowIndex;
+                    if (e.KeyCode == System.Windows.Forms.Keys.Down)
+                    {
+                        rowIndex = (rowIndex < rowsCount - 1) ? rowIndex + 1 : 0;
+                    }
+                    else if (e.KeyCode == System.Windows.Forms.Keys.Up)
+                    {
+                        rowIndex = (rowIndex == 0) ? rowsCount - 1 : rowIndex - 1;
+                    }
+                    dgv.CurrentCell = dgv.Rows[rowIndex].Cells[0];
+                }
+            }
+            // Enter
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (dgv.Rows.Count > 0)
+                {
+                    int rowIndex = dgv.CurrentCell.RowIndex;
+                    if (rowIndex >= 0)
+                    {
+                        // tb_company_TextChanged
+                        this.tb_company.TextChanged -= new System.EventHandler(this.tb_company_TextChanged);
+                        tb_company.Text = dgv.Rows[rowIndex].Cells[0].Value.ToString().Trim();
+                        this.tb_company.TextChanged += new System.EventHandler(this.tb_company_TextChanged);
 
+                        tb_company.Select(tb_company.Text.Length, 0);
+                        dgv.DataSource = null;
+                        dgv.Visible = false;
+                    }
+                }
+            }
+
+        }
+
+        private void tb_company_Leave(object sender, EventArgs e)
+        {
+            this.dgv_company.DataSource = null;
+            this.dgv_company.Visible = false;
+        }
+
+        private void tb_company_TextChanged(object sender, EventArgs e)
+        {
+            bool IsResetDgv = true;
+            string search = tb_company.Text.Trim().Replace("'", "");
+            if (search.Length > 1)
+            {
+                string sql = string.Format(@"SELECT TOP 10 Gsm AS '单位名称', Owner as '负责人'  FROM Company WHERE likevalue LIKE '%{0}%'", search);
+                DataTable table = SqlHelper.GetDataTableBySQL(sql);
+                if (table.Rows.Count > 0)
+                {
+                    dgv_company.DataSource = table;
+                    dgv_company.Visible = true;
+                    dgv_company.Location = this.p_company;
+                    dgv_company.BringToFront();
+                    dgv_company.Visible = true;
+                    dgv_company.Height = dgv_company.Rows.Count * dgv_company.RowTemplate.Height + dgv_company.ColumnHeadersHeight + 10;
+                    IsResetDgv = false;
+                }
+            }
+            if (IsResetDgv)
+            {
+                dgv_company.DataSource = null;
+                dgv_company.Visible = false;
+            }
         }
 
     }

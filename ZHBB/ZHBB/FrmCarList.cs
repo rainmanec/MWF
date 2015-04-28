@@ -43,6 +43,8 @@ namespace ZHBB
                                     ID,
                                     chepai as '车牌号',
                                     owner as '车主',
+                                    weight as '车重',
+                                    company as '所属单位',
                                     phone as '电话',
                                     address as '地址',
                                     beizhu as '备注'

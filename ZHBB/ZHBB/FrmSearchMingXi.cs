@@ -86,7 +86,7 @@ namespace ZHBB
             Parms.Add(Util.NewSqlParameter("@p_time_end", SqlDbType.DateTime, time_end));
 
             this.sql_parms = Util.ListToArray(Parms);
-            this.sql_where = (Condition.Count > 0) ? " AND " + Util.ListJoin(" AND ", Condition) : "";
+            this.sql_where =  Util.ListJoin(" AND ", Condition);
         }
 
         /// <summary>
@@ -105,24 +105,20 @@ namespace ZHBB
 	                                    TA.NetWeight AS '净重量',
 	                                    TA.InWeight AS '进厂重量',
 	                                    TA.OutTime AS '出厂重量',
-	                                    TA.InTime AS '进厂时间',
 	                                    TA.OutTime AS '出厂时间',
 	                                    TA.other AS '其他',
-	                                    TB.xingming AS '进厂操作员', 
 	                                    TC.xingming AS '出厂操作员'
                                     FROM 
 	                                    Records AS TA 
-	                                    LEFT JOIN Users AS TB ON TA.InUname = TB.uname 
 	                                    LEFT JOIN Users AS TC ON TA.OutUname = TC.uname
-                                    WHERE IsClose = 1 {0}
+                                    WHERE {0}
                                 ", this.sql_where);
             this.sql_count = string.Format(@"
                                     SELECT ISNULL(COUNT(*), 0)
                                     FROM 
 	                                    Records AS TA 
-	                                    LEFT JOIN Users AS TB ON TA.InUname = TB.uname 
 	                                    LEFT JOIN Users AS TC ON TA.OutUname = TC.uname
-                                    WHERE IsClose = 1 {0}
+                                    WHERE {0}
                                 ", this.sql_where);
             this.paginator1.Init(Util.IntTryParse(SqlHelper.GetFirstCellStringBySQL(this.sql_count, this.sql_parms)), 100);
         }

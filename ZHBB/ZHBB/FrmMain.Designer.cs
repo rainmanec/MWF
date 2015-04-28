@@ -35,7 +35,6 @@
             this.车辆管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.种类管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.采购单位管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.车辆进厂ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.车辆出厂ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.明细查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,6 +47,7 @@
             this.密码修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_logout = new System.Windows.Forms.ToolStripMenuItem();
+            this.车辆进厂ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,13 +96,6 @@
             this.采购单位管理ToolStripMenuItem.Size = new System.Drawing.Size(92, 21);
             this.采购单位管理ToolStripMenuItem.Text = "采购单位管理";
             this.采购单位管理ToolStripMenuItem.Click += new System.EventHandler(this.采购单位管理ToolStripMenuItem_Click);
-            // 
-            // 车辆进厂ToolStripMenuItem
-            // 
-            this.车辆进厂ToolStripMenuItem.Name = "车辆进厂ToolStripMenuItem";
-            this.车辆进厂ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
-            this.车辆进厂ToolStripMenuItem.Text = "车辆进厂";
-            this.车辆进厂ToolStripMenuItem.Click += new System.EventHandler(this.车辆进厂ToolStripMenuItem_Click);
             // 
             // 车辆出厂ToolStripMenuItem
             // 
@@ -196,6 +189,13 @@
             this.tsmi_logout.Text = "退出";
             this.tsmi_logout.Click += new System.EventHandler(this.tsmi_logout_Click);
             // 
+            // 车辆进厂ToolStripMenuItem
+            // 
+            this.车辆进厂ToolStripMenuItem.Name = "车辆进厂ToolStripMenuItem";
+            this.车辆进厂ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.车辆进厂ToolStripMenuItem.Text = "车辆进厂";
+            this.车辆进厂ToolStripMenuItem.Click += new System.EventHandler(this.车辆进厂ToolStripMenuItem_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -226,7 +226,6 @@
         private System.Windows.Forms.ToolStripMenuItem 帮助ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 用户管理ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 车辆管理ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 车辆进厂ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 车辆出厂ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 系统配置ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 种类管理ToolStripMenuItem;
@@ -237,6 +236,7 @@
         private System.Windows.Forms.ToolStripMenuItem 年报ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 月报ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 未出厂记录ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 车辆进厂ToolStripMenuItem;
 
     }
 }

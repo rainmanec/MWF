@@ -47,6 +47,8 @@
             this.tb_weight = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.dgv_company = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_company)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -185,6 +187,9 @@
             this.tb_company.Name = "tb_company";
             this.tb_company.Size = new System.Drawing.Size(259, 21);
             this.tb_company.TabIndex = 4;
+            this.tb_company.TextChanged += new System.EventHandler(this.tb_company_TextChanged);
+            this.tb_company.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_company_KeyDown);
+            this.tb_company.Leave += new System.EventHandler(this.tb_company_Leave);
             // 
             // tb_weight
             // 
@@ -211,11 +216,30 @@
             this.label4.TabIndex = 69;
             this.label4.Text = "车重：";
             // 
+            // dgv_company
+            // 
+            this.dgv_company.AllowUserToAddRows = false;
+            this.dgv_company.AllowUserToDeleteRows = false;
+            this.dgv_company.AllowUserToResizeColumns = false;
+            this.dgv_company.AllowUserToResizeRows = false;
+            this.dgv_company.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgv_company.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_company.Location = new System.Drawing.Point(417, 111);
+            this.dgv_company.MultiSelect = false;
+            this.dgv_company.Name = "dgv_company";
+            this.dgv_company.ReadOnly = true;
+            this.dgv_company.RowHeadersVisible = false;
+            this.dgv_company.RowTemplate.Height = 23;
+            this.dgv_company.Size = new System.Drawing.Size(264, 246);
+            this.dgv_company.TabIndex = 73;
+            this.dgv_company.Visible = false;
+            // 
             // FrmCarEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(543, 312);
+            this.Controls.Add(this.dgv_company);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tb_company);
@@ -243,6 +267,7 @@
             this.Tag = "FrmCarEdit";
             this.Text = "编辑车辆";
             this.Load += new System.EventHandler(this.FrmCarEdit_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_company)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -269,5 +294,6 @@
         private System.Windows.Forms.TextBox tb_weight;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridView dgv_company;
     }
 }
