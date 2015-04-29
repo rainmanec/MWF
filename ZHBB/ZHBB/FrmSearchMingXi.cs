@@ -50,7 +50,7 @@ namespace ZHBB
             this.LoadData();
         }
 
-
+        #region 辅助函数
         /// <summary>
         /// 根据搜索条件设置sql_where和sql_parms两个变量
         /// </summary>
@@ -102,9 +102,9 @@ namespace ZHBB
 	                                    TA.Company AS '采购单位',
 	                                    TA.chepai AS '车牌',
 	                                    TA.Kind AS '料种',
-	                                    TA.NetWeight AS '净重量',
-	                                    TA.InWeight AS '进厂重量',
+	                                    TA.InWeight AS '车重',
 	                                    TA.OutTime AS '出厂重量',
+	                                    TA.NetWeight AS '净重量',
 	                                    TA.OutTime AS '出厂时间',
 	                                    TA.other AS '其他',
 	                                    TC.xingming AS '出厂操作员'
@@ -122,7 +122,9 @@ namespace ZHBB
                                 ", this.sql_where);
             this.paginator1.Init(Util.IntTryParse(SqlHelper.GetFirstCellStringBySQL(this.sql_count, this.sql_parms)), 100);
         }
+        #endregion
 
+        #region 车牌搜索提示
         /// <summary>
         /// 车牌号文本框：根据车牌号搜索
         /// </summary>
@@ -194,7 +196,7 @@ namespace ZHBB
                 tb_cp.Focus();
             }
         }
-        
+
         /// <summary>
         /// 车牌号：焦点离开事件
         /// </summary>
@@ -203,8 +205,9 @@ namespace ZHBB
             dgv_cars.DataSource = null;
             dgv_cars.Visible = false;
         }
+        #endregion
 
-
+        #region 采购单位搜索提示
         /// <summary>
         /// 采购单位：Value变化事件
         /// </summary>
@@ -283,6 +286,7 @@ namespace ZHBB
             dgv_company.DataSource = null;
             dgv_company.Visible = false;
         }
+        #endregion
 
         /// <summary>
         /// 搜索按钮
@@ -320,18 +324,6 @@ namespace ZHBB
                     }
                 }
             }
-            else if (dgv_records.Columns[e.ColumnIndex].Name == "撤销")
-            {
-                if (Util.CancelRecordOut(this.id) == true)
-                {
-                    MessageBox.Show("撤销成功！");
-                    this.paginator1.Refresh();
-                }
-                else
-                {
-                    MessageBox.Show("撤销失败！");
-                }
-            }
             else if (dgv_records.Columns[e.ColumnIndex].Name == "打印")
             {
                 Util.PrintRecord(this.id);
@@ -357,15 +349,6 @@ namespace ZHBB
             dgv.Columns.Insert(0, dgv_button_col3);
             dgv.Columns["打印"].Width = 60;
             dgv.Columns["打印"].DefaultCellStyle.Padding = new Padding(2, 0, 2, 0);
-
-            DataGridViewButtonColumn dgv_button_col2 = new DataGridViewButtonColumn();
-            dgv_button_col2.Name = "撤销";
-            dgv_button_col2.UseColumnTextForButtonValue = true;
-            dgv_button_col2.Text = "撤销";
-            dgv_button_col2.HeaderText = "撤销";
-            dgv.Columns.Insert(0, dgv_button_col2);
-            dgv.Columns["撤销"].Width = 60;
-            dgv.Columns["撤销"].DefaultCellStyle.Padding = new Padding(2, 0, 2, 0);
 
             DataGridViewButtonColumn dgv_button_col1 = new DataGridViewButtonColumn();
             dgv_button_col1.Name = "删除";

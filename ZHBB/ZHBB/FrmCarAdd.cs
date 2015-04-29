@@ -141,6 +141,7 @@ namespace ZHBB
             }
         }
 
+        #region 采购单位搜索提示
         private void tb_company_KeyDown(object sender, KeyEventArgs e)
         {
             DataGridView dgv = this.dgv_company;
@@ -215,6 +216,7 @@ namespace ZHBB
                 dgv_company.Visible = false;
             }
         }
+        #endregion
 
     }
 }

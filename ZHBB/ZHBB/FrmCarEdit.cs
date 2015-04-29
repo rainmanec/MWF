@@ -27,11 +27,36 @@ namespace ZHBB
             this.p_company = new Point(tb_company.Left, tb_company.Top + tb_company.Height);
         }
 
+        #region 辅助函数
+        /// <summary>
+        /// 根据项目ID拉取信息
+        /// </summary>
+        /// <param name="pid"></param>
+        private void Copy(int id)
+        {
+            string sql = "select * from Cars where ID = " + id;
+            DataTable table = SqlHelper.GetDataTableBySQL(sql);
+            if (table.Rows.Count != 1)
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            DataRow row = table.Rows[0];
+
+            tb_chepai.Text = row["chepai"].ToString();
+            tb_owner.Text = row["owner"].ToString();
+            tb_phone.Text = row["phone"].ToString();
+            tb_address.Text = row["address"].ToString();
+            tb_beizhu.Text = row["beizhu"].ToString();
+            tb_weight.Text = row["weight"].ToString();
+            tb_company.Text = row["company"].ToString();
+        }
+
+        #endregion
+
         /// <summary>
         /// 取消按钮事件
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
@@ -135,28 +160,7 @@ namespace ZHBB
             }
         }
 
-        /// <summary>
-        /// 根据项目ID拉取信息
-        /// </summary>
-        /// <param name="pid"></param>
-        private void Copy(int id)
-        {
-            string sql = "select * from Cars where ID = " + id;
-            DataTable table = SqlHelper.GetDataTableBySQL(sql);
-            if (table.Rows.Count != 1)
-            {
-                this.DialogResult = DialogResult.OK;
-                this.Close();
-            }
-            DataRow row = table.Rows[0];
-
-            tb_chepai.Text = row["chepai"].ToString();
-            tb_owner.Text = row["owner"].ToString();
-            tb_phone.Text = row["phone"].ToString();
-            tb_address.Text = row["address"].ToString();
-            tb_beizhu.Text = row["beizhu"].ToString();
-        }
-
+        #region 所属单位搜索提示
         private void tb_company_KeyDown(object sender, KeyEventArgs e)
         {
             DataGridView dgv = this.dgv_company;
@@ -233,5 +237,7 @@ namespace ZHBB
             }
 
         }
+        #endregion
+
     }
 }

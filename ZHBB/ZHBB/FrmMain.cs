@@ -97,8 +97,8 @@ namespace ZHBB
                 查询ToolStripMenuItem.Visible = false;
                 系统配置ToolStripMenuItem.Visible = false;
 
-                this.CloseMdiChildren("FrmRecordIn");
-                FrmRecordIn frm = new FrmRecordIn();
+                this.CloseMdiChildren("FrmRecordOut");
+                FrmRecordOut frm = new FrmRecordOut();
                 frm.WindowState = FormWindowState.Maximized;
                 frm.MdiParent = this;
                 frm.Show();
@@ -146,14 +146,6 @@ namespace ZHBB
             frm.ShowDialog();
         }
 
-        private void 车辆进厂ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.CloseMdiChildren("FrmRecordIn");
-            FrmRecordIn frm = new FrmRecordIn();
-            frm.WindowState = FormWindowState.Maximized;
-            frm.MdiParent = this;
-            frm.Show();
-        }
 
         private void 车辆出厂ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -231,15 +223,6 @@ namespace ZHBB
         {
             this.CloseMdiChildren("FrmSearchMonth");
             FrmSearchMonth frm = new FrmSearchMonth();
-            frm.WindowState = FormWindowState.Maximized;
-            frm.MdiParent = this;
-            frm.Show();
-        }
-
-        private void 未出厂记录ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.CloseMdiChildren("FrmSearchNotOut");
-            FrmSearchNotOut frm = new FrmSearchNotOut();
             frm.WindowState = FormWindowState.Maximized;
             frm.MdiParent = this;
             frm.Show();

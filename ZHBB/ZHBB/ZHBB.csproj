@@ -87,6 +87,9 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Services" />
@@ -143,12 +146,6 @@
     </Compile>
     <Compile Include="FrmPasswordEdit.Designer.cs">
       <DependentUpon>FrmPasswordEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmRecordIn.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmRecordIn.Designer.cs">
-      <DependentUpon>FrmRecordIn.cs</DependentUpon>
     </Compile>
     <Compile Include="MyUIPrintSetting.cs">
       <SubType>Form</SubType>
@@ -262,12 +259,6 @@
     <Compile Include="FrmSearchMonth.Designer.cs">
       <DependentUpon>FrmSearchMonth.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSearchNotOut.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmSearchNotOut.Designer.cs">
-      <DependentUpon>FrmSearchNotOut.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="FrmAbout.resx">
       <DependentUpon>FrmAbout.cs</DependentUpon>
     </EmbeddedResource>
@@ -285,9 +276,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmRecordIn.resx">
-      <DependentUpon>FrmRecordIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyUIPrintSetting.resx">
       <DependentUpon>MyUIPrintSetting.cs</DependentUpon>
@@ -348,9 +336,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSearchMonth.resx">
       <DependentUpon>FrmSearchMonth.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmSearchNotOut.resx">
-      <DependentUpon>FrmSearchNotOut.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Rdlc\RdlcRecord.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -430,6 +415,9 @@
       <Project>{6EF6DD55-27DB-4E1E-B916-6C4430AA7B97}</Project>
       <Name>MyUI</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

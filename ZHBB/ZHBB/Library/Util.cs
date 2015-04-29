@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.IO.Ports;
 using System.Configuration;
 using System.Web.Script.Serialization;
+using System.Management;
+
 namespace ZHBB
 {
     partial class Util
@@ -252,7 +254,44 @@ namespace ZHBB
 
         #endregion
 
+
         #region 通用函数
+        public static string GetMd5(string str)
+        {
+            System.Security.Cryptography.MD5CryptoServiceProvider md5Hasher = new System.Security.Cryptography.MD5CryptoServiceProvider();
+            byte[] hashedDataBytes;
+            hashedDataBytes = md5Hasher.ComputeHash(Encoding.GetEncoding("gb2312").GetBytes(str));
+            StringBuilder tmp = new StringBuilder();
+            foreach (byte i in hashedDataBytes)
+            {
+                tmp.Append(i.ToString("x2"));
+            }
+            str = tmp.ToString().ToUpper();
+            return str;
+        }
+
+        public static string EncodeHash(string str)
+        {
+            str = str + "@#$%&*()@";
+            return Util.GetMd5(str);
+        }
+
+        public static string[] GetMacAddress()
+        {
+            
+            ManagementClass mc = new ManagementClass("Win32_NetworkAdapterConfiguration");
+            ManagementObjectCollection moc = mc.GetInstances();
+            List<string> list = new List<string>();
+            foreach (ManagementObject mo in moc)
+            {
+                if (mo["MacAddress"] != null)
+                {
+                    list.Add(mo["MacAddress"].ToString().ToUpper());
+                }
+            }
+            return Util.ListToArray(list);
+        }
+
         /// <summary>
         /// 加密字符串
         /// </summary>

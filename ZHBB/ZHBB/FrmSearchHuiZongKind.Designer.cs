@@ -163,7 +163,6 @@
             this.dgv_records.RowTemplate.Height = 23;
             this.dgv_records.Size = new System.Drawing.Size(847, 400);
             this.dgv_records.TabIndex = 1;
-            this.dgv_records.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_in_records_CellContentClick);
             // 
             // FrmSearchHuiZongKind
             // 

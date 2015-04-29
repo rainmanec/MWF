@@ -41,13 +41,11 @@
             this.汇总查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.年报ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.月报ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.未出厂记录ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_config = new System.Windows.Forms.ToolStripMenuItem();
             this.系统配置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.密码修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_logout = new System.Windows.Forms.ToolStripMenuItem();
-            this.车辆进厂ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,7 +56,6 @@
             this.车辆管理ToolStripMenuItem,
             this.种类管理ToolStripMenuItem,
             this.采购单位管理ToolStripMenuItem,
-            this.车辆进厂ToolStripMenuItem,
             this.车辆出厂ToolStripMenuItem,
             this.查询ToolStripMenuItem,
             this.tsmi_config,
@@ -110,8 +107,7 @@
             this.明细查询ToolStripMenuItem,
             this.汇总查询ToolStripMenuItem,
             this.年报ToolStripMenuItem,
-            this.月报ToolStripMenuItem,
-            this.未出厂记录ToolStripMenuItem});
+            this.月报ToolStripMenuItem});
             this.查询ToolStripMenuItem.Name = "查询ToolStripMenuItem";
             this.查询ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.查询ToolStripMenuItem.Text = "查询";
@@ -119,37 +115,30 @@
             // 明细查询ToolStripMenuItem
             // 
             this.明细查询ToolStripMenuItem.Name = "明细查询ToolStripMenuItem";
-            this.明细查询ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.明细查询ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.明细查询ToolStripMenuItem.Text = "明细查询";
             this.明细查询ToolStripMenuItem.Click += new System.EventHandler(this.明细查询ToolStripMenuItem_Click);
             // 
             // 汇总查询ToolStripMenuItem
             // 
             this.汇总查询ToolStripMenuItem.Name = "汇总查询ToolStripMenuItem";
-            this.汇总查询ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.汇总查询ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.汇总查询ToolStripMenuItem.Text = "汇总查询";
             this.汇总查询ToolStripMenuItem.Click += new System.EventHandler(this.汇总查询ToolStripMenuItem_Click);
             // 
             // 年报ToolStripMenuItem
             // 
             this.年报ToolStripMenuItem.Name = "年报ToolStripMenuItem";
-            this.年报ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.年报ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.年报ToolStripMenuItem.Text = "年报";
             this.年报ToolStripMenuItem.Click += new System.EventHandler(this.年报ToolStripMenuItem_Click);
             // 
             // 月报ToolStripMenuItem
             // 
             this.月报ToolStripMenuItem.Name = "月报ToolStripMenuItem";
-            this.月报ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.月报ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.月报ToolStripMenuItem.Text = "月报";
             this.月报ToolStripMenuItem.Click += new System.EventHandler(this.月报ToolStripMenuItem_Click);
-            // 
-            // 未出厂记录ToolStripMenuItem
-            // 
-            this.未出厂记录ToolStripMenuItem.Name = "未出厂记录ToolStripMenuItem";
-            this.未出厂记录ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.未出厂记录ToolStripMenuItem.Text = "未出厂记录";
-            this.未出厂记录ToolStripMenuItem.Click += new System.EventHandler(this.未出厂记录ToolStripMenuItem_Click);
             // 
             // tsmi_config
             // 
@@ -188,13 +177,6 @@
             this.tsmi_logout.Size = new System.Drawing.Size(44, 21);
             this.tsmi_logout.Text = "退出";
             this.tsmi_logout.Click += new System.EventHandler(this.tsmi_logout_Click);
-            // 
-            // 车辆进厂ToolStripMenuItem
-            // 
-            this.车辆进厂ToolStripMenuItem.Name = "车辆进厂ToolStripMenuItem";
-            this.车辆进厂ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
-            this.车辆进厂ToolStripMenuItem.Text = "车辆进厂";
-            this.车辆进厂ToolStripMenuItem.Click += new System.EventHandler(this.车辆进厂ToolStripMenuItem_Click);
             // 
             // FrmMain
             // 
@@ -235,8 +217,6 @@
         private System.Windows.Forms.ToolStripMenuItem 汇总查询ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 年报ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 月报ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 未出厂记录ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 车辆进厂ToolStripMenuItem;
 
     }
 }

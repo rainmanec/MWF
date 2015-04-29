@@ -110,23 +110,6 @@ namespace ZHBB
         #region 数据库操作-Record表
 
         /// <summary>
-        /// 撤销记录的出厂状态，即将出厂时间、出厂重量等清空
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public static bool CancelRecordOut(int id)
-        {
-            SqlParameter p_id = Util.NewSqlParameter("@p_id", SqlDbType.Int, id);
-            string sql = string.Format(@"
-                                UPDATE Records
-                                SET
-	                                OutTime = NULL, OutWeight = NULL, NetWeight = NULL,
-	                                other = '', Kind = '', OutUname = '', IsClose = 0
-                                WHERE ID = @p_id");
-            return (SqlHelper.ExecuteNonQuery(sql, p_id) == 1);
-        }
-
-        /// <summary>
         /// 删除某条记录
         /// </summary>
         /// <param name="id"></param>
