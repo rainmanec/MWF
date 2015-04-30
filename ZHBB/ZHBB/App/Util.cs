@@ -18,6 +18,17 @@ namespace ZHBB
 
         #region 项目函数库
 
+        /// <summary>
+        /// 生成密钥
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static string EncodeHash(string str)
+        {
+            str = AppData.SECRET_KEY + str + AppData.SECRET_KEY;
+            return Util.GetMd5(Util.GetMd5(str));
+        }
+
         #endregion
 
         #region 据库操作-常用表
@@ -45,7 +56,7 @@ namespace ZHBB
         /// <param name="cnt">内容</param>
         public static void console_log(string cnt)
         {
-            Util.console_log(AppData.uname, AppData.xingming, cnt);
+            Util.console_log(AppData.Uname, AppData.XingMing, cnt);
         }
 
         /// <summary>
@@ -106,7 +117,6 @@ namespace ZHBB
 
         #endregion
 
-
         #region 数据库操作-Record表
 
         /// <summary>
@@ -121,7 +131,6 @@ namespace ZHBB
             return (affect == 1);
         }
         #endregion
-
 
         #region 项目常用函数
 
@@ -153,9 +162,10 @@ namespace ZHBB
                 tb.Rows[0][4] = row["OutWeight"].ToString();
                 tb.Rows[0][5] = row["NetWeight"].ToString();
                 tb.Rows[0][6] = row["other"].ToString();
+                ReportParameter p_title = new ReportParameter("p_title", AppData.Company);
                 ReportParameter p_outuser = new ReportParameter("p_outuser", "操作员：" + row["outXingming"].ToString());
                 ReportParameter p_outtime = new ReportParameter("p_outtime", Convert.IsDBNull(row["OutTime"]) ? "" : "时间：" + Convert.ToDateTime(row["OutTime"]).ToString("yyyy-MM-dd hh:mm") + "    票号：" + row["ID"].ToString());
-                ReportParameter[] parms = new ReportParameter[] { p_outuser, p_outtime };
+                ReportParameter[] parms = new ReportParameter[] { p_title, p_outuser, p_outtime };
                 ReportDataSource source = new ReportDataSource();
                 source.Name = "DataSetRecord";
                 source.Value = tb;
@@ -421,5 +431,6 @@ namespace ZHBB
             return true;
         }
         #endregion
+
     }
 }

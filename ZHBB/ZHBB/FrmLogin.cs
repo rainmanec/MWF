@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-
 using System.Data.SqlClient;
 using System.Threading;
 
@@ -17,6 +16,7 @@ namespace ZHBB
         public FrmLogin()
         {
             InitializeComponent();
+            this.Text = string.Format(this.Text, AppData.Company);
         }
 
         private void txtUname_KeyUp(object sender, KeyEventArgs e)
@@ -50,9 +50,9 @@ namespace ZHBB
             DataTable table = SqlHelper.GetDataTableBySQL("select * from Users where uname = @p_uname and password = @p_password", parms);
             if (table.Rows.Count == 1)
             {
-                AppData.uname = table.Rows[0]["uname"].ToString();
-                AppData.xingming = table.Rows[0]["xingming"].ToString();
-                AppData.uroleid = Util.IntTryParse(table.Rows[0]["roleid"].ToString());
+                AppData.Uname = table.Rows[0]["uname"].ToString();
+                AppData.XingMing = table.Rows[0]["xingming"].ToString();
+                AppData.Uroleid = Util.IntTryParse(table.Rows[0]["roleid"].ToString());
                 //Util.console_log("登陆系统");
                 this.DialogResult = DialogResult.OK;
                 this.Close();
@@ -69,7 +69,6 @@ namespace ZHBB
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
-
         }
 
     }

@@ -19,7 +19,8 @@ namespace ZHBB
         private void FrmAbout_Load(object sender, EventArgs e)
         {
             FrmMain fm = new FrmMain();
-            lb_version.Text = "版本号：V" + AppData.version.ToString("F1");
+            lb_softname.Text = string.Format(lb_softname.Text, AppData.Company);
+            lb_version.Text = string.Format(lb_version.Text, AppData.VERSION.ToString("F1"));
             fm.Dispose();
         }
     }

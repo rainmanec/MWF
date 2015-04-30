@@ -104,6 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App\AppData.cs" />
+    <Compile Include="Library\PinYin.cs" />
     <Compile Include="Library\Util.cs" />
     <Compile Include="MyUIReportViwer.cs">
       <SubType>Form</SubType>

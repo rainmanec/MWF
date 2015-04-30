@@ -13,7 +13,7 @@ namespace ZHBB
 {
     public partial class FrmCarAdd : Form
     {
-        private Point p_company;
+        private Point point_company;
         public bool IsAdded = false;  // 是否添加过用户
 
         public FrmCarAdd()
@@ -23,7 +23,7 @@ namespace ZHBB
 
         private void FrmCarAdd_Load(object sender, EventArgs e)
         {
-            this.p_company = new Point(tb_company.Left, tb_company.Top + tb_company.Height);
+            this.point_company = new Point(tb_company.Left, tb_company.Top + tb_company.Height);
         }
 
         /// <summary>
@@ -203,7 +203,7 @@ namespace ZHBB
                 {
                     dgv_company.DataSource = table;
                     dgv_company.Visible = true;
-                    dgv_company.Location = this.p_company;
+                    dgv_company.Location = this.point_company;
                     dgv_company.BringToFront();
                     dgv_company.Visible = true;
                     dgv_company.Height = dgv_company.Rows.Count * dgv_company.RowTemplate.Height + dgv_company.ColumnHeadersHeight + 10;

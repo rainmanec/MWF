@@ -28,29 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label19 = new System.Windows.Forms.Label();
+            this.lb_softname = new System.Windows.Forms.Label();
             this.lb_version = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label19
+            // lb_softname
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(27, 29);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(173, 12);
-            this.label19.TabIndex = 3;
-            this.label19.Text = "软件名称：采厂场信息管理系统";
+            this.lb_softname.AutoSize = true;
+            this.lb_softname.Location = new System.Drawing.Point(27, 29);
+            this.lb_softname.Name = "lb_softname";
+            this.lb_softname.Size = new System.Drawing.Size(155, 12);
+            this.lb_softname.TabIndex = 3;
+            this.lb_softname.Text = "软件名称：{0}信息管理系统";
             // 
             // lb_version
             // 
             this.lb_version.AutoSize = true;
             this.lb_version.Location = new System.Drawing.Point(27, 59);
             this.lb_version.Name = "lb_version";
-            this.lb_version.Size = new System.Drawing.Size(53, 12);
+            this.lb_version.Size = new System.Drawing.Size(77, 12);
             this.lb_version.TabIndex = 4;
-            this.lb_version.Text = "版本号：";
+            this.lb_version.Text = "版本号：V{0}";
             // 
             // label2
             // 
@@ -78,7 +78,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lb_version);
-            this.Controls.Add(this.label19);
+            this.Controls.Add(this.lb_softname);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmAbout";
@@ -93,7 +93,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label lb_softname;
         private System.Windows.Forms.Label lb_version;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;

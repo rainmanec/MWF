@@ -19,6 +19,7 @@ namespace ZHBB
         public FrmMain()
         {
             InitializeComponent();
+            this.Text = string.Format(this.Text, AppData.Company);
         }
 
         /// <summary>
@@ -26,40 +27,16 @@ namespace ZHBB
         /// </summary>
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            // 版本检测
-            DataRow data = SqlHelper.GetFirstRowBySQL("SELECT * FROM Config WHERE K = 'Version'");
-            double version_t = Convert.ToDouble(data["V"].ToString());
-            bool isVersion = true;
-            if (AppData.version < version_t)
+            FrmLogin frm = new FrmLogin();
+            if (frm.ShowDialog() == DialogResult.OK)
             {
-                MessageBox.Show("您当前的软件版本过低，请联系管理员更新至V" + version_t.ToString("F1") + "！");
-                isVersion = false;
-            }
-            else if (AppData.version > version_t)
-            {
-                MessageBox.Show("您当前的软件版本不正确，请联系管理员！");
-                isVersion = false;
-            }
-
-            // 登陆
-            if (isVersion == false)
-            {
-                this.Close();    // 关闭主窗体
+                this.WindowState = FormWindowState.Maximized;
+                this.InitInterface();
             }
             else
             {
-                FrmLogin frm = new FrmLogin();
-                if (frm.ShowDialog() == DialogResult.OK)
-                {
-                    this.WindowState = FormWindowState.Maximized;
-                    this.InitInterface();
-                }
-                else
-                {
-                    this.Close();    // 关闭主窗体
-                }
+                this.Close();    // 关闭主窗体
             }
-
         }
 
         #region 辅助函数
@@ -89,7 +66,7 @@ namespace ZHBB
         /// </summary>
         public void InitInterface()
         {
-            int roleid = AppData.uroleid;
+            int roleid = AppData.Uroleid;
             if (roleid != 1)
             {
                 用户管理ToolStripMenuItem.Visible = false;

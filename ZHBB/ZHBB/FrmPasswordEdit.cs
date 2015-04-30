@@ -47,7 +47,7 @@ namespace ZHBB
                 return;
             }
 
-            SqlParameter p_uname = Util.NewSqlParameter("@p_uname", SqlDbType.VarChar, AppData.uname, 50);
+            SqlParameter p_uname = Util.NewSqlParameter("@p_uname", SqlDbType.VarChar, AppData.Uname, 50);
             SqlParameter p_password = Util.NewSqlParameter("p_password", SqlDbType.VarChar, oldpwd, 50);
             SqlParameter p_password_new = Util.NewSqlParameter("p_password_new", SqlDbType.VarChar, newpwd, 50);
 

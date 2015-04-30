@@ -115,28 +115,28 @@
             // 明细查询ToolStripMenuItem
             // 
             this.明细查询ToolStripMenuItem.Name = "明细查询ToolStripMenuItem";
-            this.明细查询ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.明细查询ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.明细查询ToolStripMenuItem.Text = "明细查询";
             this.明细查询ToolStripMenuItem.Click += new System.EventHandler(this.明细查询ToolStripMenuItem_Click);
             // 
             // 汇总查询ToolStripMenuItem
             // 
             this.汇总查询ToolStripMenuItem.Name = "汇总查询ToolStripMenuItem";
-            this.汇总查询ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.汇总查询ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.汇总查询ToolStripMenuItem.Text = "汇总查询";
             this.汇总查询ToolStripMenuItem.Click += new System.EventHandler(this.汇总查询ToolStripMenuItem_Click);
             // 
             // 年报ToolStripMenuItem
             // 
             this.年报ToolStripMenuItem.Name = "年报ToolStripMenuItem";
-            this.年报ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.年报ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.年报ToolStripMenuItem.Text = "年报";
             this.年报ToolStripMenuItem.Click += new System.EventHandler(this.年报ToolStripMenuItem_Click);
             // 
             // 月报ToolStripMenuItem
             // 
             this.月报ToolStripMenuItem.Name = "月报ToolStripMenuItem";
-            this.月报ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.月报ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.月报ToolStripMenuItem.Text = "月报";
             this.月报ToolStripMenuItem.Click += new System.EventHandler(this.月报ToolStripMenuItem_Click);
             // 
@@ -189,7 +189,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "瀚臣采石厂信息管理系统";
+            this.Text = "{0}信息管理系统";
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

@@ -36,7 +36,7 @@ namespace ZHBB
             {
                 this.SwitchIsSensorCheckbox(0);
             }
-            if (AppData.uroleid < 1)
+            if (AppData.Uroleid < 1)
             {
                 this.cb_person.Enabled = false;
                 this.cb_sensor.Enabled = false;

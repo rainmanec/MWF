@@ -256,6 +256,11 @@ namespace ZHBB
 
 
         #region 通用函数
+        /// <summary>
+        /// Md5加密字符串
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         public static string GetMd5(string str)
         {
             System.Security.Cryptography.MD5CryptoServiceProvider md5Hasher = new System.Security.Cryptography.MD5CryptoServiceProvider();
@@ -270,12 +275,10 @@ namespace ZHBB
             return str;
         }
 
-        public static string EncodeHash(string str)
-        {
-            str = str + "@#$%&*()@";
-            return Util.GetMd5(str);
-        }
-
+        /// <summary>
+        /// 获取网卡地址
+        /// </summary>
+        /// <returns></returns>
         public static string[] GetMacAddress()
         {
             
@@ -286,7 +289,7 @@ namespace ZHBB
             {
                 if (mo["MacAddress"] != null)
                 {
-                    list.Add(mo["MacAddress"].ToString().ToUpper());
+                    list.Add(mo["MacAddress"].ToString().Replace('-', ':').ToUpper());
                 }
             }
             return Util.ListToArray(list);
@@ -357,69 +360,76 @@ namespace ZHBB
         }
 
 
-        /// <summary>  
-        /// 提取汉字首字母
-        /// </summary>  
-        /// <param name="str">需要转换的字</param>  
+        /// <summary>
+        /// 获取字符串的全拼
+        /// </summary>
+        /// <param name="text">获取文本框数值</param>
         /// <param name="only">只返回汉字部分</param>  
-        /// <returns>转换结果</returns>
-        public static string GetChineseSpell(string str, bool only)
+        /// <returns>返回全拼</returns>
+        public static string GetFullPinYin(string text, bool only)
         {
-            int len = str.Length;
-            string myStr = "";
-            for (int i = 0; i < len; i++)
+            StringBuilder sb = new StringBuilder();
+
+            foreach (char ch in text)
             {
-                if (only == true)
+                HanZi hzi = Chinese.GetHanZi(ch);
+                if (hzi == null)
                 {
-                    if (str[i] >= 0x4e00 && str[i] <= 0x9fbb)
-                    {
-                        myStr += GetSpell(str[i].ToString());
-                    }
+                    if(only == false) sb.Append(ch);
                 }
                 else
                 {
-                    myStr += GetSpell(str[i].ToString());
+                    sb.Append(hzi.PinYin);
                 }
             }
-            return myStr.ToUpper();
+
+            return sb.ToString();
         }
 
-        /// <summary>  
-        /// 提取汉字首字母，只返回汉字对应的首字母
-        /// </summary>  
-        /// <param name="str">需要转换的字</param>  
-        /// <returns>转换结果</returns>
-        public static string GetChineseSpell(string str)
+        /// <summary>
+        /// 获取字符串的全拼，排除非中文字符
+        /// </summary>
+        /// <param name="text">获取文本框数值</param>
+        /// <returns>返回全拼</returns>
+        public static string GetFullPinYin(string text)
         {
-            return Util.GetChineseSpell(str, true);
+            return Util.GetFullPinYin(text, true);
         }
 
-        /// <summary>  
-        /// 获取单个汉字的首拼音  
-        /// </summary>  
-        /// <param name="myChar">需要转换的字符</param>  
-        /// <returns>转换结果</returns>  
-        private static string GetSpell(string myChar)
+        /// <summary>
+        /// 获取汉字首字母
+        /// </summary>
+        /// <param name="text">获取文本框数值</param>
+        /// <param name="only">只返回汉字部分</param>  
+        /// <returns>返回每个汉字首字母</returns>
+        public static string GetFirstPinYin(string text, bool only)
         {
-            byte[] arrCN = System.Text.Encoding.Default.GetBytes(myChar);
-            if (arrCN.Length > 1)
+            StringBuilder sb = new StringBuilder();
+
+            foreach (char ch in text)
             {
-                int area = (short)arrCN[0];
-                int pos = (short)arrCN[1];
-                int code = (area << 8) + pos;
-                int[] areacode = { 45217, 45253, 45761, 46318, 46826, 47010, 47297, 47614, 48119, 48119, 49062, 49324, 49896, 50371, 50614, 50622, 50906, 51387, 51446, 52218, 52698, 52698, 52698, 52980, 53689, 54481 };
-                for (int i = 0; i < 26; i++)
+                HanZi hz = Chinese.GetHanZi(ch);
+                if (hz == null)
                 {
-                    int max = 55290;
-                    if (i != 25) max = areacode[i + 1];
-                    if (areacode[i] <= code && code < max)
-                    {
-                        return System.Text.Encoding.Default.GetString(new byte[] { (byte)(65 + i) });
-                    }
+                    if (only == false) sb.Append(ch);
                 }
-                return "_";
+                else
+                {
+                    sb.Append(hz.FirstPinYin);
+                }
             }
-            else return myChar;
+
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// 获取汉字首字母，排除非汉字字符
+        /// </summary>
+        /// <param name="text">获取文本框数值</param>
+        /// <returns>返回每个汉字首字母</returns>
+        public static string GetFirstPinYin(string text)
+        {
+            return Util.GetFirstPinYin(text, false);
         }
 
         /// <summary>
@@ -432,7 +442,7 @@ namespace ZHBB
             for(int i = 0; i < strs.Length; i++)
             {
                 string str = strs[i].ToUpper();
-                string str_spell = Util.GetChineseSpell(str);
+                string str_spell = Util.GetFirstPinYin(str);
                 string str_char = "";
                 string str_numb = "";
                 for (int j = 0; j < str.Length; j++)

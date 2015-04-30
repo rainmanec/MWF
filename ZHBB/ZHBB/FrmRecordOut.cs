@@ -53,7 +53,7 @@ namespace ZHBB
                                 other as '其他',
                                 OutTime as '出厂时间'
                             FROM Records 
-                            WHERE OutUname = '{0}' ORDER BY OutTime DESC", AppData.uname);
+                            WHERE OutUname = '{0}' ORDER BY OutTime DESC", AppData.Uname);
             dgv_out_records.DataSource = SqlHelper.GetDataTableBySQL(sql);
 
 
@@ -208,7 +208,7 @@ namespace ZHBB
                         @"
                             INSERT INTO Records(chepai, OutTime, InWeight, OutWeight, NetWeight, other, Kind, Company, OutUname, likevalue)
                             VALUES(@p_chepai, @p_OutTime, @p_InWeight, @p_OutWeight, @p_NetWeight, @p_other, @p_Kind, @p_Company, '{0}', @p_likevalue)
-                        ", AppData.uname);
+                        ", AppData.Uname);
 
             int affect = SqlHelper.ExecuteNonQuery(sql, p_chepai, p_OutTime, p_InWeight, p_OutWeight, p_NetWeight, p_other, p_Kind, p_Company, p_likevalue);
             if (affect > 0)

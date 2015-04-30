@@ -14,7 +14,7 @@ namespace ZHBB
     public partial class FrmCarEdit : Form
     {
         public int id;
-        private Point p_company;
+        private Point point_company;
 
         public FrmCarEdit()
         {
@@ -24,10 +24,15 @@ namespace ZHBB
         private void FrmCarEdit_Load(object sender, EventArgs e)
         {
             this.Copy(this.id);
-            this.p_company = new Point(tb_company.Left, tb_company.Top + tb_company.Height);
+            this.point_company = new Point(tb_company.Left, tb_company.Top + tb_company.Height);
         }
 
         #region 辅助函数
+
+        public void SetValue(TextBox tb, string str)
+        {
+
+        }
         /// <summary>
         /// 根据项目ID拉取信息
         /// </summary>
@@ -49,7 +54,10 @@ namespace ZHBB
             tb_address.Text = row["address"].ToString();
             tb_beizhu.Text = row["beizhu"].ToString();
             tb_weight.Text = row["weight"].ToString();
+
+            this.tb_company.TextChanged -= new System.EventHandler(this.tb_company_TextChanged);
             tb_company.Text = row["company"].ToString();
+            this.tb_company.TextChanged += new System.EventHandler(this.tb_company_TextChanged);
         }
 
         #endregion
@@ -223,7 +231,7 @@ namespace ZHBB
                 {
                     dgv_company.DataSource = table;
                     dgv_company.Visible = true;
-                    dgv_company.Location = this.p_company;
+                    dgv_company.Location = this.point_company;
                     dgv_company.BringToFront();
                     dgv_company.Visible = true;
                     dgv_company.Height = dgv_company.Rows.Count * dgv_company.RowTemplate.Height + dgv_company.ColumnHeadersHeight + 10;
