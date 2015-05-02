@@ -31,8 +31,8 @@ namespace ZHBB
             }
             if (IsXLH == false)
             {
-                MessageBox.Show("软件序列号不正确，请联系厂商！");
-                return;
+                //MessageBox.Show("软件序列号不正确，请联系厂商！");
+                //return;
             }
 
             // 连接字符串

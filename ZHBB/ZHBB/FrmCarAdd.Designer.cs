@@ -169,6 +169,7 @@
             this.tb_company.Size = new System.Drawing.Size(259, 21);
             this.tb_company.TabIndex = 4;
             this.tb_company.TextChanged += new System.EventHandler(this.tb_company_TextChanged);
+            this.tb_company.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_company_KeyDown);
             this.tb_company.Leave += new System.EventHandler(this.tb_company_Leave);
             // 
             // tb_weight

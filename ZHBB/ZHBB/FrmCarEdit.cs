@@ -28,11 +28,6 @@ namespace ZHBB
         }
 
         #region 辅助函数
-
-        public void SetValue(TextBox tb, string str)
-        {
-
-        }
         /// <summary>
         /// 根据项目ID拉取信息
         /// </summary>
@@ -202,7 +197,7 @@ namespace ZHBB
                         this.tb_company.TextChanged -= new System.EventHandler(this.tb_company_TextChanged);
                         tb_company.Text = dgv.Rows[rowIndex].Cells[0].Value.ToString().Trim();
                         this.tb_company.TextChanged += new System.EventHandler(this.tb_company_TextChanged);
-
+                        
                         tb_company.Select(tb_company.Text.Length, 0);
                         dgv.DataSource = null;
                         dgv.Visible = false;
@@ -211,6 +206,7 @@ namespace ZHBB
             }
 
         }
+
 
         private void tb_company_Leave(object sender, EventArgs e)
         {
