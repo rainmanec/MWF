@@ -104,10 +104,10 @@ namespace ZHBB
             }
 
             /* 执行添加操作 */
-            SqlParameter[] paras = new SqlParameter[] { p_chepai, p_owner, p_phone, p_address, p_beizhu, p_likevalue };            
+            SqlParameter[] paras = new SqlParameter[] { p_chepai, p_owner, p_phone, p_address, p_beizhu, p_weight, p_company, p_likevalue };            
             string sql = @"INSERT 
                             INTO Cars(chepai, owner, phone, address, beizhu, Likevalue, weight, company) 
-                            VALUES (@p_chepai, @p_owner, @p_phone, @p_address, @p_beizhu, @p_likevalue, @p_weight,p_company, p_weight, @p_company)";
+                            VALUES (@p_chepai, @p_owner, @p_phone, @p_address, @p_beizhu, @p_likevalue, @p_weight, @p_company)";
             int affect = SqlHelper.ExecuteNonQuery(sql, paras);
             if (affect == 1)
             {

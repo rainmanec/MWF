@@ -86,21 +86,21 @@
             this.cb_kind.Location = new System.Drawing.Point(91, 98);
             this.cb_kind.Name = "cb_kind";
             this.cb_kind.Size = new System.Drawing.Size(314, 20);
-            this.cb_kind.TabIndex = 20;
+            this.cb_kind.TabIndex = 5;
             // 
             // dtp_end
             // 
             this.dtp_end.Location = new System.Drawing.Point(255, 10);
             this.dtp_end.Name = "dtp_end";
             this.dtp_end.Size = new System.Drawing.Size(150, 21);
-            this.dtp_end.TabIndex = 11;
+            this.dtp_end.TabIndex = 2;
             // 
             // dtp_begin
             // 
             this.dtp_begin.Location = new System.Drawing.Point(91, 10);
             this.dtp_begin.Name = "dtp_begin";
             this.dtp_begin.Size = new System.Drawing.Size(150, 21);
-            this.dtp_begin.TabIndex = 10;
+            this.dtp_begin.TabIndex = 1;
             // 
             // label5
             // 
@@ -117,7 +117,7 @@
             this.tb_cp.Location = new System.Drawing.Point(91, 68);
             this.tb_cp.Name = "tb_cp";
             this.tb_cp.Size = new System.Drawing.Size(314, 21);
-            this.tb_cp.TabIndex = 8;
+            this.tb_cp.TabIndex = 4;
             this.tb_cp.TextChanged += new System.EventHandler(this.tb_cp_TextChanged);
             this.tb_cp.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_cp_KeyDown);
             this.tb_cp.Leave += new System.EventHandler(this.tb_cp_Leave);
@@ -138,7 +138,7 @@
             this.btn_submit.Location = new System.Drawing.Point(91, 130);
             this.btn_submit.Name = "btn_submit";
             this.btn_submit.Size = new System.Drawing.Size(314, 23);
-            this.btn_submit.TabIndex = 5;
+            this.btn_submit.TabIndex = 6;
             this.btn_submit.Text = "提交";
             this.btn_submit.UseVisualStyleBackColor = true;
             this.btn_submit.Click += new System.EventHandler(this.btn_submit_Click);
@@ -149,7 +149,7 @@
             this.tb_chepai.Location = new System.Drawing.Point(91, 39);
             this.tb_chepai.Name = "tb_chepai";
             this.tb_chepai.Size = new System.Drawing.Size(314, 21);
-            this.tb_chepai.TabIndex = 2;
+            this.tb_chepai.TabIndex = 3;
             this.tb_chepai.TextChanged += new System.EventHandler(this.tb_chepai_TextChanged);
             this.tb_chepai.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_chepai_KeyDown);
             this.tb_chepai.Leave += new System.EventHandler(this.tb_chepai_Leave);
@@ -189,7 +189,7 @@
             this.dgv_cars.RowHeadersVisible = false;
             this.dgv_cars.RowTemplate.Height = 23;
             this.dgv_cars.Size = new System.Drawing.Size(257, 246);
-            this.dgv_cars.TabIndex = 1;
+            this.dgv_cars.TabIndex = 112;
             this.dgv_cars.Visible = false;
             // 
             // dgv_records
@@ -204,7 +204,7 @@
             this.dgv_records.ReadOnly = true;
             this.dgv_records.RowTemplate.Height = 23;
             this.dgv_records.Size = new System.Drawing.Size(847, 345);
-            this.dgv_records.TabIndex = 1;
+            this.dgv_records.TabIndex = 111;
             this.dgv_records.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_in_records_CellContentClick);
             // 
             // dgv_company
@@ -222,7 +222,7 @@
             this.dgv_company.RowHeadersVisible = false;
             this.dgv_company.RowTemplate.Height = 23;
             this.dgv_company.Size = new System.Drawing.Size(259, 246);
-            this.dgv_company.TabIndex = 2;
+            this.dgv_company.TabIndex = 211;
             this.dgv_company.Visible = false;
             // 
             // FrmSearchMingXi
