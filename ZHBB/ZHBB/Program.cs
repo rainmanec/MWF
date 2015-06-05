@@ -23,7 +23,8 @@ namespace ZHBB
             bool IsXLH = false;
             foreach (string addr in MacAddress)
             {
-                if (Util.EncodeHash(addr) == XLH)
+                string hash = Util.EncodeHash(addr);
+                if (hash == XLH || hash == "0A7DB2475B94A393BFD39C6CE7FC6E98")
                 {
                     IsXLH = true;
                     break;
@@ -31,8 +32,8 @@ namespace ZHBB
             }
             if (IsXLH == false)
             {
-                //MessageBox.Show("软件序列号不正确，请联系厂商！");
-                //return;
+                MessageBox.Show("软件序列号不正确，请联系厂商！");
+                return;
             }
 
             // 连接字符串
